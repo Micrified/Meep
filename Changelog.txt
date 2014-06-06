@@ -1,0 +1,20 @@
+Meep 1.3 Changelog:
+
+
+ADDING:
+> Name mentions. @owatch = different color box + click sound on client. < DONE
+> New Font: Try clearing out the old font because it was garbage.       < DONE
+> Better Network crashing maybe? Already mentioned that a whole bunch.  < DONE
+> Redo UI a bit. Maybe tweak the chat box. 				< DONE
+> Enforce word screening. (Yolo = ****)					< DONE
+> Try fixing bold text across network.					< ND
+> Maybe look into optimizing the seed a bit. Not really necessary.	< ND
+> Users are declared entering and exiting the session			< Done
+
+PROBLEMS:
+> Meep crashes if the server doesn't reply to a request.		< DONE
+> Meep crashes in instances where the server no longer replies.		< DONE
+> People feel ignorant when their commands are displayed. 		< DONE
+> Some awkward coding around the connection stuff. Not a smooth transition or something. Look into that.< DONE
+
+> Try porting all Networking to one thread to help minimize impact on global level < ND (Not Feasible, port UI to thread instead recommended)
