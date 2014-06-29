@@ -23,6 +23,7 @@ from kivy.core.window import Window
 from kivy.animation import Animation
 from functools import partial
 from kivy.clock import Clock
+from kivy.core.window import Window
 #________________________________________________________________________
 from socket import *
 import threading
@@ -226,7 +227,6 @@ def username_update(username,screen_reference,seed):
 def seed_update(seed,screen_reference, username):
     global SEED
     print("Function: Updating Seed and Dictionary")
-    screen_reference.seed.text = seed
     Call(seed)
     with open (program_assets, "w") as File:
         File.write(username + "\n" + seed)
@@ -362,9 +362,18 @@ kv = """
 
 <Menu>:
     host: host_input
-    seed: seed_input
+    seed: None
     usn: userid_input
     on_pre_enter: app.InfoBuild(self)
+    b1: a
+    b2: b
+    b3: c
+    b4: d
+    b5: e
+    b6: f
+    b7: g
+    b8: h
+    b9: i
     BoxLayout:
         cols: 1
         orientation: 'vertical'
@@ -381,7 +390,7 @@ kv = """
                 
         Label:
             font_name: app.menu_font
-            text: "[color=#000000]Meep[/color][color=#003368][sub] 1.3[/sub][/color]"
+            text: "[color=#000000]Meep[/color][color=#003368][sub] 1.3.5[/sub][/color]"
             markup: True
             size_hint: .5,None
             height: self.texture_size[1]
@@ -431,7 +440,7 @@ kv = """
                 multiline: False
                 background_color: 1,1,1,0
                 valign: 'top'
-                on_text_validate: app.Launch(root.seed.text,root.host.text,root.usn.text,root)
+                on_text_validate: app.Launch(root.host.text,root.usn.text,root)
 
             Label:
                 font_name: app.menu_font
@@ -444,26 +453,200 @@ kv = """
                 background_color: 1,1,1,1
                 color: 0,0,0,.8
 
-            TextInput:
-                font_name: app.menu_font
-                canvas.before:
-                    Color:
-                        rgba: 0,.2,.4,.8
-                    Rectangle:
-                        pos: self.pos
-                        size: self.size
-                    Color:
-                        rgba: 1,1,1,1
-                id: seed_input
-                font_size: 15
-                cursor_blink: False
-                hint_text: 'Nine digits'
-                size_hint: None,None
-                height: 35
-                width: 250
-                multiline: False
-                background_color: 1,1,1,0
-                valign: 'top'
+            BoxLayout:
+                orientation: "horizontal"
+    
+                StackLayout:
+                    orientation: 'lr-tb'
+                    padding: 0
+                    spacing: [.5,0]
+                    canvas:
+                        Color:
+                            rgba: 1,1,1,0
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+
+                    TextInput:
+                        id: a            
+                        canvas.before:
+                            Color:
+                                rgba: 0,.2,.4,.8
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                            Color:
+                                rgba: 1,1,1,1
+                    
+                        on_focus: app.setup(root), print("TextInput: Now focused.")
+                        text: ""
+                        size_hint: None, None
+                        font_name: app.menu_font
+                        multiline: False
+                        height: 30
+                        width: 27
+
+                    TextInput:
+                        id: b
+
+                        canvas.before:
+                            Color:
+                                rgba: 0,.2,.4,.8
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                            Color:
+                                rgba: 1,1,1,1
+                    
+                        readonly: True
+                        text: ""
+                        size_hint: None, None
+                        font_name: app.menu_font
+                        multiline: False
+                        height: 30
+                        width: 27
+
+                    TextInput:
+                        id: c
+
+                        canvas.before:
+                            Color:
+                                rgba: 0,.2,.4,.8
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                            Color:
+                                rgba: 1,1,1,1
+                    
+                        readonly: True
+                        text: ""
+                        multiline: False
+                        size_hint: None, None
+                        font_name: app.menu_font
+                        height: 30
+                        width: 27               
+
+        
+                    TextInput:
+                        id: d
+
+                        canvas.before:
+                            Color:
+                                rgba: 0,.2,.4,.8
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                            Color:
+                                rgba: 1,1,1,1
+                    
+                        readonly: True
+                        text: ""
+                        multiline: False
+                        size_hint: None, None
+                        font_name: app.menu_font
+                        height: 30
+                        width: 27
+
+                    TextInput:
+                        id: e
+
+                        canvas.before:
+                            Color:
+                                rgba: 0,.2,.4,.8
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                            Color:
+                                rgba: 1,1,1,1
+                    
+                        readonly: True
+                        text: ""
+                        multiline: False
+                        size_hint: None, None
+                        font_name: app.menu_font
+                        height: 30
+                        width: 27
+
+                    TextInput:
+                        id: f
+
+                        canvas.before:
+                            
+                            Color:
+                                rgba: 0,.2,.4,.8
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                            Color:
+                                rgba: 1,1,1,1
+                    
+                        readonly: True
+                        text: ""
+                        multiline: False
+                        size_hint: None, None
+                        font_name: app.menu_font
+                        height: 30
+                        width: 27
+
+                    TextInput:
+                        id: g
+
+                        canvas.before:
+                            Color:
+                                rgba: 0,.2,.4,.8
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                            Color:
+                                rgba: 1,1,1,1
+                    
+                        readonly: True
+                        text: ""
+                        multiline: False
+                        size_hint: None, None
+                        font_name: app.menu_font
+                        height: 30
+                        width: 27
+
+                    TextInput:
+                        id: h
+
+                        canvas.before:
+                            Color:
+                                rgba: 0,.2,.4,.8
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                            Color:
+                                rgba: 1,1,1,1
+                    
+                        readonly: True
+                        text: ""
+                        multiline: False
+                        size_hint: None, None
+                        font_name: app.menu_font
+                        height: 30
+                        width: 27
+            
+                    TextInput:
+                        id: i
+
+                        canvas.before:
+                            Color:
+                                rgba: 0,.2,.4,.8
+                            Rectangle:
+                                pos: self.pos
+                                size: self.size
+                            Color:
+                                rgba: 1,1,1,1
+                    
+                        readonly: True
+                        text: ""
+                        multiline: False
+                        size_hint: None, None
+                        font_name: app.menu_font
+                        height: 30
+                        width: 27  
                 
             Label:
                 font_name: app.menu_font
@@ -512,7 +695,7 @@ kv = """
             background_color: .2,.4,1,0
             color: 0,0,0,.9
             on_press:
-                app.Launch(root.seed.text,root.host.text,root.usn.text,root)
+                app.Launch(root.host.text,root.usn.text,root)
                 
     
     
@@ -750,10 +933,57 @@ class ChatScreen(Screen):
 
 class Meep(App):
     menu_font = normal_font
+    
+    def setup(self,root):
+        self.Boxes = {1: root.b1, 2: root.b2, 3: root.b3,4: root.b4, 5: root.b5, 6: root.b6, 7: root.b7, 8: root.b8, 9: root.b9}
+        self.base = 1
+        print("SETUP: I should only be called once.")
+        self.Boxes[self.base].text = ""
+        root.b1.focus = False
+        self.keyboard = Window.request_keyboard(callback = self.delink ,target = self.Boxes[self.base], input_type = "text")
+        self.keyboard.bind(on_key_up = self.validate)
 
+    def delink(self):
+        print("Keyboard Delinked")
+        try:
+            self.keyboard.unbind(on_key_up = self.validate)
+            self.keyboard = None
+        except AttributeError:
+            print("ATTRIBUTE ERROR") # Show Popup
+
+    def validate(self,a,b):
+        print("Validate: I should only be called once")
+        try:
+            int(b[1])
+            self.Boxes[self.base].text = b[1] # b is a tuple, 1 is the key pressed
+            self.Boxes[self.base].on_text_validate()
+            self.Boxes[self.base].readonly = True
+        except ValueError:
+            self.Boxes[self.base].text = ""
+            return self.Show_Popup("ErrorPopup","Integers Only",True)
+        
+
+        self.base = self.base + 1
+        if self.base == 10:
+            self.keyboard.unbind(on_key_up = self.validate)
+            self.keyboard = None
+        else:
+            self.Boxes[self.base].readonly = False
+            self.keyboard = Window.request_keyboard(callback = self.delink ,target = self.Boxes[self.base], input_type = "text")
+            self.keyboard.bind(on_key_up = self.validate)
+            
     def InfoBuild(self,screen):
         screen.usn.text = USERNAME
-        screen.seed.text = SEED
+        elements = [i for i in SEED]
+        screen.b1.text = elements[0]
+        screen.b2.text = elements[1]
+        screen.b3.text = elements[2]
+        screen.b4.text = elements[3]
+        screen.b5.text = elements[4]
+        screen.b6.text = elements[5]
+        screen.b7.text = elements[6]
+        screen.b8.text = elements[7]
+        screen.b9.text = elements[8]
         
     def Show_Popup(self,Type,Text,rq): #rq just determines whether it is dismissable by clicking outside the box. True = yes, False = no
         T = {"ErrorPopup":ErrorPopup,"OptionPopup":OptionPopup,"IDPopup":IDPopup,"LoadingPopup":LoadingPopup}
@@ -763,10 +993,11 @@ class Meep(App):
             return
         L.ref.text = Text
 
-    def Launch(self,seed,host,username,screen):
+    def Launch(self,host,username,screen):
         global Exit
         Exit = False
         screen_reference = screen
+        seed = screen.b1.text + screen.b2.text + screen.b3.text + screen.b4.text + screen.b5.text + screen.b6.text + screen.b7.text + screen.b8.text + screen.b9.text
         if username != USERNAME:
             username_update(username,screen_reference,seed)
         if seed != SEED:
