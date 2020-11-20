@@ -20,4 +20,3 @@ Meep was discontinued in the summer of 2014. Here are some screenshots of the ap
 
 ![alt text](http://imgur.com/Cwz1eHO.png)
 
-You can read more about Meep [here](http://unisung.blogspot.nl/search/label/Meep).
